@@ -1,12 +1,18 @@
 <template>
   <v-app-bar density="compact" class="app-border" flat>
     <v-row class="px-6">
-      <v-col><v-img :src="logo" width="150" height="30"></v-img></v-col>
+      <v-col>
+        <RouterLink to="/">
+          <v-img :src="logo" width="150" height="30"></v-img>
+        </RouterLink>
+      </v-col>
       <v-col class="text-center text-secondary align-self-center">{{ now }}</v-col>
       <v-col class="text-end text-secondary align-self-center">
-        <v-icon size="small">mdi-cart-outline</v-icon>
-        Cart
-        <span>({{ cartItems.length }})</span>
+        <RouterLink to="/checkout" class="text-secondary text-decoration-none">
+          <v-icon size="small">mdi-cart-outline</v-icon>
+          <span>Cart</span>
+          <span>({{ cartItems.length }})</span>
+        </RouterLink>
       </v-col>
     </v-row>
   </v-app-bar>
