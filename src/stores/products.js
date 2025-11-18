@@ -3,8 +3,8 @@ import { defineStore } from 'pinia'
 
 export const useProductsStore = defineStore('products', () => {
   const products = ref([])
-  function setProducts(products) {
-    products.value = products
+  function setProducts(value) {
+    products.value = value
   }
 
   return { products, setProducts }
