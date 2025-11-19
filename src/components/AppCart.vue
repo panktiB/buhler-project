@@ -9,7 +9,7 @@
       </v-col>
       <v-col cols="8" class="align-self-center">
         <div class="font-weight-bold">{{ item.name }}</div>
-        <div class="">{{ item.category }}</div>
+        <div class="text-capitalize font-italic">{{ item.category.split('_').join(' ') }}</div>
       </v-col>
       <v-col cols="2">
         <v-row>
