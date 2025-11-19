@@ -7,7 +7,9 @@
       </v-row>
       <v-row>
         <v-col>x{{ product.price }}</v-col>
-        <v-col class="text-end"><v-icon size="small" @click.stop="handleClick">mdi-cart-outline</v-icon></v-col>
+        <v-col class="text-end">
+          <v-icon size="small" @click.stop="handleClick">mdi-cart-outline</v-icon>
+        </v-col>
       </v-row>
     </v-card-text>
   </v-card>
