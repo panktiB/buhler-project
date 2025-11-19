@@ -56,5 +56,6 @@ export const useProductsStore = defineStore('products', () => {
     getProductById,
     categorizedProducts,
     getCategorizedProducts,
+    fetchProducts,
   }
 })
