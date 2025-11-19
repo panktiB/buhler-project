@@ -2,6 +2,8 @@ import { ref } from 'vue'
 import { defineStore } from 'pinia'
 
 export const useProductsStore = defineStore('products', () => {
+  const loading = ref(false)
+  const error = ref(null)
   const products = ref([])
   const categorizedProducts = ref([])
 
@@ -12,13 +14,18 @@ export const useProductsStore = defineStore('products', () => {
   }
 
   const fetchProducts = async () => {
+    loading.value = true
+    error.value = null
     try {
       const response = await fetch('./../../public/mock.json')
       const products = await response.json()
       setProducts(products)
       categorizedProducts.value = getCategorizedProducts()
-    } catch (error) {
+    } catch (err) {
       console.error('Error fetching products:', error)
+      error.value = err.message || "Unknown error"
+    } finally {
+      loading.value = false
     }
   }
 
@@ -33,7 +40,7 @@ export const useProductsStore = defineStore('products', () => {
   function getCategorizedProducts() {
     const categoryMap = {}
 
-    products.value.forEach((product) => {
+    products.value?.forEach((product) => {
       const category = product.category
 
       if (!categoryMap[category]) {
