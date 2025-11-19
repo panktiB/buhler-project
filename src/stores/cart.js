@@ -1,4 +1,4 @@
-import { ref, computed } from 'vue'
+import { ref } from 'vue'
 import { defineStore } from 'pinia'
 
 export const useCartStore = defineStore('card', () => {
@@ -7,5 +7,12 @@ export const useCartStore = defineStore('card', () => {
     products.value.push(value)
   }
 
-  return { products, addProduct }
+  function removeProduct(id) {
+    const index = products.value.findIndex((product) => product.id === id)
+    if (index !== -1) {
+      products.value.splice(index, 1)
+    }
+  }
+
+  return { products, addProduct, removeProduct }
 })

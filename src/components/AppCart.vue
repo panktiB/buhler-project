@@ -1,9 +1,34 @@
 <template>
   <v-container>
-    <v-row v-for="item in items" :key="item.id" class="mb-4">
-      <v-col cols="12">
-        <div class="">{{item.name}}</div>
+    <v-row class="text-secondary">
+      <div class="font-weight-bold">Checkout</div>
+    </v-row>
+    <v-row v-for="item in items" :key="item.id" class="mb-4 text-secondary">
+      <v-col cols="2">
+        <v-img :src="item.imageUrl" height="100" />
       </v-col>
+      <v-col cols="8" class="align-self-center">
+        <div class="font-weight-bold">{{ item.name }}</div>
+        <div class="">{{ item.category }}</div>
+      </v-col>
+      <v-col cols="2">
+        <v-row>
+          <v-col>
+            <span>x{{ item.price }}</span>
+          </v-col>
+          <v-col class="justify-end">
+            <v-btn
+              icon="mdi-close"
+              variant="plain"
+              density="compact"
+              @click="removeFromCart(item.id)"
+            />
+          </v-col>
+        </v-row>
+      </v-col>
+    </v-row>
+    <v-row class="justify-end text-secondary">
+      <div class="font-weight-bold">Total: x{{ totalPrice }}</div>
     </v-row>
   </v-container>
 </template>
@@ -15,4 +40,12 @@ import { onMounted, ref, computed } from 'vue'
 const cartStore = useCartStore()
 
 const items = computed(() => cartStore.products)
+
+const removeFromCart = (id) => {
+  cartStore.removeProduct(id)
+}
+
+const totalPrice = computed(() => {
+  return cartStore.products.reduce((total, product) => total + product.price, 0)
+})
 </script>
