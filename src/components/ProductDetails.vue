@@ -14,7 +14,9 @@
           <div class="text-h6 font-weight-bold pl-5">{{ product?.name }}</div>
         </v-row>
         <v-row>
-          <div class="font-italic pl-5">{{ product?.category }}</div>
+          <div class="font-italic pl-5 text-capitalize">
+            {{ product?.category.split('_').join(' ') }}
+          </div>
         </v-row>
         <v-row>
           <div class="pl-5">x{{ product?.price }}</div>
@@ -46,6 +48,7 @@ const productsStore = useProductsStore()
 
 onMounted(() => {
   productId.value = route.params.id
+  productsStore.initialize()
 })
 
 const handleClick = () => {

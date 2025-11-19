@@ -4,6 +4,24 @@ import { defineStore } from 'pinia'
 export const useProductsStore = defineStore('products', () => {
   const products = ref([])
   const categorizedProducts = ref([])
+
+  const initialize = async () => {
+    if (products.value.length === 0) {
+      await fetchProducts()
+    }
+  }
+
+  const fetchProducts = async () => {
+    try {
+      const response = await fetch('./../../public/mock.json')
+      const products = await response.json()
+      setProducts(products)
+      categorizedProducts.value = getCategorizedProducts()
+    } catch (error) {
+      console.error('Error fetching products:', error)
+    }
+  }
+
   function setProducts(value) {
     products.value = value
   }
@@ -28,9 +46,15 @@ export const useProductsStore = defineStore('products', () => {
 
       categoryMap[category].products.push(product)
     })
-    categorizedProducts.value = Object.values(categoryMap)
-    return categorizedProducts.value
+    return Object.values(categoryMap)
   }
 
-  return { products, setProducts, getProductById, categorizedProducts, getCategorizedProducts }
+  return {
+    initialize,
+    products,
+    setProducts,
+    getProductById,
+    categorizedProducts,
+    getCategorizedProducts,
+  }
 })

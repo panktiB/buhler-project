@@ -39,9 +39,7 @@ const fetchProducts = async () => {
 }
 
 onMounted(() => {
-  if (productsStore.products.length === 0) {
-    fetchProducts()
-  }
+  productsStore.initialize()
 })
 
 const handleClick = (id) => {
