@@ -35,7 +35,7 @@
 
 <script setup>
 import { useCartStore } from '@/stores/cart.js'
-import { onMounted, ref, computed } from 'vue'
+import { computed } from 'vue'
 
 const cartStore = useCartStore()
 

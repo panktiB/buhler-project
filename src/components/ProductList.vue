@@ -9,7 +9,7 @@
 </template>
 
 <script setup>
-import { ref, onMounted, onUnmounted, computed } from 'vue'
+import { onMounted, computed } from 'vue'
 import { useProductsStore } from '@/stores/products.js'
 import ProductItem from './ProductItem.vue'
 import { useRouter } from 'vue-router'
