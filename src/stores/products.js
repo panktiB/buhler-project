@@ -23,7 +23,7 @@ export const useProductsStore = defineStore('products', () => {
       categorizedProducts.value = getCategorizedProducts()
     } catch (err) {
       console.error('Error fetching products:', error)
-      error.value = err.message || "Unknown error"
+      error.value = err.message || 'Unknown error'
     } finally {
       loading.value = false
     }

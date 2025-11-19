@@ -2,6 +2,7 @@ import { describe, it, expect, beforeEach, vi } from 'vitest'
 import { setActivePinia, createPinia } from 'pinia'
 import { useProductsStore } from '@/stores/products'
 
+/* eslint-disable no-undef */
 global.fetch = vi.fn()
 
 describe('products store tests', () => {
@@ -21,7 +22,7 @@ describe('products store tests', () => {
   it('setProducts updates products value', () => {
     const mockProducts = [
       { id: 1, name: 'product1', category: 'category1' },
-      { id: 2, name: 'product2', category: 'category2' }
+      { id: 2, name: 'product2', category: 'category2' },
     ]
     store.setProducts(mockProducts)
     expect(store.products).toEqual(mockProducts)
@@ -30,7 +31,7 @@ describe('products store tests', () => {
   it('getProductById returns correct product', () => {
     const mockProducts = [
       { id: 1, name: 'product1', category: 'category1' },
-      { id: 2, name: 'product2', category: 'category2' }
+      { id: 2, name: 'product2', category: 'category2' },
     ]
     store.setProducts(mockProducts)
     expect(store.getProductById(2)).toEqual(mockProducts[1])
@@ -41,7 +42,7 @@ describe('products store tests', () => {
     const mockProducts = [
       { id: 1, name: 'product1', category: 'category1' },
       { id: 2, name: 'product2', category: 'category1' },
-      { id: 3, name: 'product3', category: 'category2' }
+      { id: 3, name: 'product3', category: 'category2' },
     ]
     store.setProducts(mockProducts)
     const result = store.getCategorizedProducts()
@@ -51,25 +52,21 @@ describe('products store tests', () => {
         label: 'category1',
         products: [
           { id: 1, name: 'product1', category: 'category1' },
-          { id: 2, name: 'product2', category: 'category1' }
-        ]
+          { id: 2, name: 'product2', category: 'category1' },
+        ],
       },
       {
         name: 'category2',
         label: 'category2',
-        products: [
-          { id: 3, name: 'product3', category: 'category2' }
-        ]
-      }
+        products: [{ id: 3, name: 'product3', category: 'category2' }],
+      },
     ])
   })
 
   it('fetchProducts fetches from mock.json and updates store', async () => {
-    const mockResponse = [
-      { id: 1, name: 'product1', category: 'category1' }
-    ]
+    const mockResponse = [{ id: 1, name: 'product1', category: 'category1' }]
     fetch.mockResolvedValue({
-      json: () => Promise.resolve(mockResponse)
+      json: () => Promise.resolve(mockResponse),
     })
 
     await store.fetchProducts()
@@ -81,11 +78,9 @@ describe('products store tests', () => {
   })
 
   it('initialize calls fetchProducts when products are empty', async () => {
-    const mockResponse = [
-      { id: 1, name: 'product1', category: 'category1' }
-    ]
+    const mockResponse = [{ id: 1, name: 'product1', category: 'category1' }]
     fetch.mockResolvedValue({
-      json: () => Promise.resolve(mockResponse)
+      json: () => Promise.resolve(mockResponse),
     })
 
     await store.initialize()
