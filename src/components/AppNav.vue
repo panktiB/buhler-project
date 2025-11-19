@@ -1,5 +1,5 @@
 <template>
-  <v-app-bar density="compact" class="app-border" flat>
+  <v-app-bar density="compact" class="nav-container" flat>
     <v-row class="px-6">
       <v-col>
         <RouterLink to="/">
@@ -67,7 +67,8 @@ const cartItems = computed(() => cartStore.products)
 </script>
 
 <style lang="scss" scoped>
-.app-border {
+.nav-container {
+  background-color: #f3f3f3 !important;
   border-bottom: 1px solid rgb(var(--v-theme-secondary));
 }
 </style>

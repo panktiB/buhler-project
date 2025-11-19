@@ -1,5 +1,5 @@
 <template>
-  <v-app>
+  <v-app class="app-container">
     <AppNav />
     <v-main class="content-wrapper">
       <RouterView />
@@ -12,6 +12,9 @@ import { RouterView } from 'vue-router'
 </script>
 
 <style scoped lang="scss">
+.app-container {
+  background-color: #f3f3f3;
+}
 .content-wrapper {
   margin-top: 54px; // 54px is the height of the app nav bar
   height: calc(100vh - 54px);
