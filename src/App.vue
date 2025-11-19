@@ -1,7 +1,7 @@
 <template>
   <v-app class="app-container">
     <AppNav />
-    <v-main class="content-wrapper">
+    <v-main class="content-wrapper pt-0">
       <RouterView />
     </v-main>
   </v-app>
