@@ -7,19 +7,26 @@
       </v-row>
       <v-row>
         <v-col>x{{ product.price }}</v-col>
-        <v-col class="text-end"><v-icon size="small">mdi-cart-outline</v-icon></v-col>
+        <v-col class="text-end"><v-icon size="small" @click.stop="handleClick">mdi-cart-outline</v-icon></v-col>
       </v-row>
     </v-card-text>
   </v-card>
 </template>
 
 <script setup>
+import { useCartStore } from '@/stores/cart.js'
 const props = defineProps({
   product: {
     type: Object,
     required: true,
   },
 })
+
+const cartStore = useCartStore()
+
+const handleClick = () => {
+  cartStore.addProduct(props.product)
+}
 </script>
 
 <style scoped lang="scss">

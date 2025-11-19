@@ -20,8 +20,8 @@
 
 <script setup>
 import logo from '@/assets/buhler-logo.svg'
-
-import { ref, onMounted, onUnmounted } from 'vue'
+import { useCartStore } from '@/stores/cart.js'
+import { ref, onMounted, onUnmounted, computed } from 'vue'
 
 const now = ref('')
 
@@ -61,7 +61,9 @@ onUnmounted(() => {
   clearInterval(interval)
 })
 
-const cartItems = ref([])
+const cartStore = useCartStore()
+
+const cartItems = computed(() => cartStore.products)
 </script>
 
 <style lang="scss" scoped>
