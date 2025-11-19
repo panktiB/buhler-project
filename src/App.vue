@@ -13,6 +13,7 @@ import { RouterView } from 'vue-router'
 
 <style scoped lang="scss">
 .content-wrapper {
+  margin-top: 54px; // 54px is the height of the app nav bar
   height: calc(100vh - 54px);
   max-height: calc(100vh - 54px);
   overflow-y: auto;
