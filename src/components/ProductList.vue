@@ -1,8 +1,13 @@
 <template>
   <v-container>
-    <v-row>
-      <v-col v-for="product in products" :key="product.id" cols="2">
-        <ProductItem :product="product" @click="handleClick(product.id)" />
+    <v-row v-for="category in categorizedProducts" :key="category.name">
+      <v-col cols="12">
+        <div class="text-capitalize font-weight-bold text-secondary">{{ category.label }}</div>
+        <v-row>
+          <v-col v-for="product in category.products" :key="product.id" cols="2">
+            <ProductItem :product="product" @click="handleClick(product.id)" />
+          </v-col>
+        </v-row>
       </v-col>
     </v-row>
   </v-container>
@@ -20,6 +25,8 @@ const router = useRouter()
 
 const products = computed(() => productsStore.products)
 
+const categorizedProducts = computed(() => productsStore.categorizedProducts)
+
 const fetchProducts = async () => {
   try {
     const response = await fetch('./../../public/mock.json')
@@ -28,6 +35,7 @@ const fetchProducts = async () => {
   } catch (error) {
     console.error('Error fetching products:', error)
   }
+  productsStore.getCategorizedProducts()
 }
 
 onMounted(() => {
