@@ -6,18 +6,18 @@
       </v-btn>
     </v-row>
     <v-row class="border-primary">
-      <v-col>
+      <v-col cols="3" class="bg-white">
         <v-img :src="product?.imageUrl" height="300" />
       </v-col>
-      <v-col class="text-secondary">
+      <v-col class="text-secondary pl-8" cols="9">
         <v-row>
-          <div class="text-h6 font-weight-bold">{{ product?.name }}</div>
+          <div class="text-h6 font-weight-bold pl-5">{{ product?.name }}</div>
         </v-row>
         <v-row>
-          <div class="font-italic">{{ product?.category }}</div>
+          <div class="font-italic pl-5">{{ product?.category }}</div>
         </v-row>
         <v-row>
-          <div>x{{ product?.price }}</div>
+          <div class="pl-5">x{{ product?.price }}</div>
         </v-row>
         <v-row>
           <v-btn variant="text" @click.stop="handleClick" class="text-capitalize">
