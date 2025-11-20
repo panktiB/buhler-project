@@ -1,14 +1,20 @@
 <template>
-  <v-card variant="outlined" class="product-wrapper">
-    <v-img :src="product.imageUrl" height="150" />
+  <v-card variant="outlined" class="product-wrapper" :aria-label="`View ${product.name} details`">
+    <v-img :src="product.imageUrl" :alt="product.name" height="150" cover />
     <v-card-text class="content text-secondary">
       <v-row class="font-weight-bold">
-        <v-col>{{ product.name }}</v-col>
+        <v-tooltip :text="product.name" location="top">
+          <template v-slot:activator="{ props }">
+            <v-col v-bind="props" class="text-truncate">{{ product.name }}</v-col>
+          </template>
+        </v-tooltip>
       </v-row>
       <v-row>
         <v-col>x{{ product.price }}</v-col>
         <v-col class="text-end">
-          <v-icon size="small" @click.stop="handleClick">mdi-cart-outline</v-icon>
+          <v-icon size="small" :aria-label="`Add ${product.name} to cart`" @click.stop="handleClick"
+            >mdi-cart-outline</v-icon
+          >
         </v-col>
       </v-row>
     </v-card-text>
@@ -21,6 +27,15 @@ const props = defineProps({
   product: {
     type: Object,
     required: true,
+    validator: (value) => {
+      return (
+        value &&
+        typeof value.id !== 'undefined' &&
+        typeof value.name === 'string' &&
+        typeof value.price === 'number' &&
+        typeof value.imageUrl === 'string'
+      )
+    },
   },
 })
 
