@@ -58,7 +58,6 @@ describe('tests for navbar', () => {
     setupPinia()
     cartStore = useCartStore()
 
-    // Mock initial cart items
     cartStore.addProduct(mockProducts[0])
     cartStore.addProduct(mockProducts[1])
 

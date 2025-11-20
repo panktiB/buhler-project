@@ -12,22 +12,16 @@
         </v-btn>
       </v-col>
     </v-row>
-
-    <!-- Loading State -->
     <v-row v-if="loading" class="justify-center my-12">
       <v-col cols="auto">
         <v-progress-circular indeterminate color="primary" />
       </v-col>
     </v-row>
-
-    <!-- Error/Not Found State -->
     <v-row v-else-if="error">
       <v-col cols="12">
         <v-alert type="error" variant="tonal"> Product not found </v-alert>
       </v-col>
     </v-row>
-
-    <!-- Product Details -->
     <v-row v-else class="border-primary">
       <v-col cols="12" md="3" class="bg-white">
         <v-img :src="product?.imageUrl" :alt="product?.name" height="300" />

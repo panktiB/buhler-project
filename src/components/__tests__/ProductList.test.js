@@ -54,7 +54,6 @@ describe('test ProductList', () => {
 
     productsStore.setProducts(mockProducts)
 
-    // Create router
     router = createRouter({
       history: createMemoryHistory(),
       routes: [

@@ -38,7 +38,7 @@ const renderWrapper = async (productId = '1') => {
   return wrapper
 }
 
-describe('ProductDetails.vue', () => {
+describe('details tests', () => {
   let wrapper
   let productsStore
   let cartStore

@@ -25,7 +25,7 @@ const mockProduct3 = {
   price: 80,
 }
 
-describe('AppCart.vue', () => {
+describe('cart tests', () => {
   let wrapper
 
   beforeEach(() => {

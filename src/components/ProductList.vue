@@ -1,13 +1,10 @@
 <template>
   <v-container>
-    <!-- Loading State -->
     <v-row v-if="loading" class="justify-center">
       <v-col cols="auto">
         <v-progress-circular indeterminate color="primary" />
       </v-col>
     </v-row>
-
-    <!-- Error State -->
     <v-row v-else-if="error">
       <v-col cols="12">
         <v-alert type="error" variant="tonal">
@@ -15,8 +12,6 @@
         </v-alert>
       </v-col>
     </v-row>
-
-    <!-- Products List -->
     <v-row v-else-if="categorizedProducts.length > 0">
       <v-col v-for="category in categorizedProducts" :key="category.name" cols="12">
         <div class="text-capitalize font-weight-bold text-secondary mb-3 category-title">
@@ -37,8 +32,6 @@
         </v-row>
       </v-col>
     </v-row>
-
-    <!-- Empty State -->
     <v-row v-else>
       <v-col cols="12" class="text-center text-secondary"> No products available </v-col>
     </v-row>

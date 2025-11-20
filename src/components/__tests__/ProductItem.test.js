@@ -19,7 +19,7 @@ const renderWrapper = (product = mockProduct) => {
   })
 }
 
-describe('ProductItem.vue', () => {
+describe('product item tests', () => {
   let wrapper
   let cartStore
 

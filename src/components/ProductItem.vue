@@ -12,9 +12,13 @@
       <v-row>
         <v-col>x{{ product.price }}</v-col>
         <v-col class="text-end">
-          <v-icon size="small" :aria-label="`Add ${product.name} to cart`" @click.stop="handleClick"
-            >mdi-cart-outline</v-icon
+          <v-icon
+            size="small"
+            :aria-label="`Add ${product.name} to cart`"
+            @click.stop="handleClick"
           >
+            mdi-cart-outline
+          </v-icon>
         </v-col>
       </v-row>
     </v-card-text>
