@@ -37,7 +37,7 @@ const formatDate = (date) => {
   }
   let formatted = new Intl.DateTimeFormat('en-US', options).format(date) // "Nov 18, 25, 6:14:14 PM"
 
-  // Convert spaces → your exact style: "Nov/18/25, 6:14:14PM"
+  // Convert spaces → exact style: "Nov/18/25, 6:14:14PM"
   formatted = formatted
     .replace(',', '') // remove first comma
     .replace(' ', '/') // between month and day

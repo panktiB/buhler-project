@@ -45,12 +45,15 @@ const renderWrapper = async () => {
   return wrapper
 }
 
-describe('AppNav.vue', () => {
+describe('tests for navbar', () => {
   let wrapper
   let cartStore
 
   beforeEach(async () => {
     vi.useFakeTimers()
+
+    const fixedDate = new Date('2025-11-20T12:34:56')
+    vi.setSystemTime(fixedDate)
 
     setupPinia()
     cartStore = useCartStore()
@@ -84,5 +87,38 @@ describe('AppNav.vue', () => {
     wrapper = await renderWrapper()
     const link = wrapper.find('a[href="/"]')
     expect(link.exists()).toBe(true)
+  })
+
+  it('displays correct cart count', async () => {
+    wrapper = await renderWrapper()
+    expect(wrapper.text()).toContain('(2)')
+  })
+
+  it('contains link to checkout page', async () => {
+    wrapper = await renderWrapper()
+    const link = wrapper.find('a[href="/checkout"]')
+    expect(link.exists()).toBe(true)
+  })
+
+  it('updates cart count reactively', async () => {
+    wrapper = await renderWrapper()
+    cartStore.addProduct(mockProducts[1])
+    await wrapper.vm.$nextTick()
+    expect(wrapper.text()).toContain('(3)')
+  })
+
+  it('formats and displays time immediately on mount', async () => {
+    wrapper = await renderWrapper()
+    expect(wrapper.text()).toContain('Nov/20/25,12:34:56 PM')
+  })
+
+  it('updates time every second', async () => {
+    wrapper = await renderWrapper()
+    const first = wrapper.text()
+    vi.advanceTimersByTime(1000)
+    await flushPromises()
+    await wrapper.vm.$nextTick()
+    const second = wrapper.text()
+    expect(first).not.toBe(second)
   })
 })
