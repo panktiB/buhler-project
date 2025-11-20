@@ -9,7 +9,8 @@ import vuetify from 'vite-plugin-vuetify'
 export default defineConfig({
   plugins: [
     vue(),
-    vueDevTools()
+    vueDevTools(),
+    vuetify({ autoImport: true }), // Add this
   ],
   resolve: {
     alias: {
