@@ -22,7 +22,7 @@
               variant="plain"
               density="compact"
               @click="removeFromCart(item.id)"
-            />
+            ></v-btn>
           </v-col>
         </v-row>
       </v-col>

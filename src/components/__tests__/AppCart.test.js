@@ -36,10 +36,6 @@ describe('AppCart.vue', () => {
     cleanupWrapper(wrapper)
   })
 
-  it('renders without errors', () => {
-    wrapper = mountWithPinia(AppCart)
-  })
-
   it('renders correct base information with empty card', () => {
     wrapper = mountWithPinia(AppCart)
     expect(wrapper.text()).toContain('Checkout')
