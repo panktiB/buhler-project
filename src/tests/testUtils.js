@@ -1,14 +1,17 @@
 import { mount } from '@vue/test-utils'
 import { createPinia, setActivePinia } from 'pinia'
 
+let currentPinia = null
+
 export function setupPinia() {
-  const pinia = createPinia()
-  setActivePinia(pinia)
-  return pinia
+  currentPinia = createPinia()
+  setActivePinia(currentPinia)
+  return currentPinia
 }
 
 export function mountWithPinia(component, options = {}) {
-  const pinia = setupPinia()
+  // Use existing pinia if available, otherwise create new one
+  const pinia = currentPinia || setupPinia()
 
   const wrapper = mount(component, {
     global: {
@@ -25,4 +28,5 @@ export function cleanupWrapper(wrapper) {
   if (wrapper) {
     wrapper.unmount()
   }
+  currentPinia = null // Reset for next test
 }
