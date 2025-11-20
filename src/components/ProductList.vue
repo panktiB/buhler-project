@@ -19,7 +19,7 @@
     <!-- Products List -->
     <v-row v-else-if="categorizedProducts.length > 0">
       <v-col v-for="category in categorizedProducts" :key="category.name" cols="12">
-        <div class="text-capitalize font-weight-bold text-secondary mb-3">
+        <div class="text-capitalize font-weight-bold text-secondary mb-3 category-title">
           {{ category.label }}
         </div>
         <v-row>
@@ -30,6 +30,7 @@
             sm="6"
             md="4"
             lg="2"
+            class="product-item-wrapper"
           >
             <ProductItem :product="product" @click="handleClick(product.id)" />
           </v-col>
