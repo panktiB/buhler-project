@@ -1,7 +1,7 @@
 <template>
   <v-container>
-    <v-row>
-      <v-col class="px-0">
+    <v-row dense class="pb-5">
+      <v-col class="pa-0">
         <v-btn
           variant="plain"
           class="text-capitalize px-0 text-secondary"
@@ -24,9 +24,9 @@
     </v-row>
     <v-row v-else class="border-primary">
       <v-col cols="12" md="3" class="bg-white">
-        <v-img :src="product?.imageUrl" :alt="product?.name" height="300" />
+        <v-img :src="product?.imageUrl" :alt="product?.name" height="200" />
       </v-col>
-      <v-col class="text-secondary pl-8" cols="12" md="9">
+      <v-col class="text-secondary position-relative pl-8" cols="12" md="9">
         <v-row>
           <div class="text-h6 font-weight-bold pl-5">{{ product?.name }}</div>
         </v-row>
@@ -38,7 +38,7 @@
         <v-row>
           <div class="pl-5">x{{ product?.price }}</div>
         </v-row>
-        <v-row>
+        <v-row class="position-absolute bottom-0 pl-1">
           <v-btn
             variant="text"
             color="secondary"

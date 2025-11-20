@@ -17,7 +17,7 @@
         <div class="text-capitalize font-weight-bold text-secondary mb-3 category-title">
           {{ category.label }}
         </div>
-        <v-row>
+        <v-row dense>
           <v-col
             v-for="product in category.products"
             :key="product.id"

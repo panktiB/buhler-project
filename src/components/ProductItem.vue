@@ -1,6 +1,8 @@
 <template>
   <v-card variant="outlined" class="product-wrapper" :aria-label="`View ${product.name} details`">
-    <v-img :src="product.imageUrl" :alt="product.name" height="150" cover />
+    <div class="pa-2">
+      <v-img :src="product.imageUrl" :alt="product.name" height="150" cover />
+    </div>
     <v-card-text class="content text-secondary">
       <v-row class="font-weight-bold">
         <v-tooltip :text="product.name" location="top">

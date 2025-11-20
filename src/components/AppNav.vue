@@ -1,6 +1,6 @@
 <template>
   <v-app-bar density="compact" class="nav-container" flat>
-    <v-row class="px-6">
+    <v-row class="px-10">
       <v-col>
         <RouterLink to="/">
           <v-img :src="logo" alt="logo" width="150" height="30"></v-img>
@@ -42,7 +42,6 @@ const formatDate = (date) => {
     .replace(',', '') // remove first comma
     .replace(' ', '/') // between month and day
     .replace(' ', '/') // between day and year
-    .replace(' ', '') // remove space before AM/PM
 
   return formatted
 }

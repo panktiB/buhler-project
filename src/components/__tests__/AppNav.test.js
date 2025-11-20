@@ -108,7 +108,7 @@ describe('tests for navbar', () => {
 
   it('formats and displays time immediately on mount', async () => {
     wrapper = await renderWrapper()
-    expect(wrapper.text()).toContain('Nov/20/25,12:34:56 PM')
+    expect(wrapper.text()).toContain('Nov/20/25, 12:34:56 PM')
   })
 
   it('updates time every second', async () => {
