@@ -10,7 +10,7 @@ export default defineConfig({
   plugins: [
     vue(),
     vueDevTools(),
-    vuetify({ autoImport: true }), // Add this
+    vuetify({ autoImport: true }),
   ],
   resolve: {
     alias: {
