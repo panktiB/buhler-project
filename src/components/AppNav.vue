@@ -3,7 +3,7 @@
     <v-row class="px-6">
       <v-col>
         <RouterLink to="/">
-          <v-img :src="logo" width="150" height="30"></v-img>
+          <v-img :src="logo" alt="logo" width="150" height="30"></v-img>
         </RouterLink>
       </v-col>
       <v-col class="text-center text-secondary align-self-center">{{ now }}</v-col>
