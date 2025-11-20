@@ -32,7 +32,7 @@ export const useProductsStore = defineStore('products', () => {
   }
 
   const getProductById = (id) => {
-    return products.value.find((product) => product.id === id)
+    return products.value.find((product) => String(product.id) === String(id))
   }
 
   const categorizedProducts = computed(() => {

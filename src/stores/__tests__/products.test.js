@@ -38,15 +38,14 @@ describe('products store tests', () => {
     expect(store.getProductById(999)).toBeUndefined()
   })
 
-  it('getCategorizedProducts returns grouped categories', () => {
+  it('categorizedProducts is exactly grouped categories', () => {
     const mockProducts = [
       { id: 1, name: 'product1', category: 'category1' },
       { id: 2, name: 'product2', category: 'category1' },
       { id: 3, name: 'product3', category: 'category2' },
     ]
     store.setProducts(mockProducts)
-    const result = store.getCategorizedProducts()
-    expect(result).toEqual([
+    expect(store.categorizedProducts).toEqual([
       {
         name: 'category1',
         label: 'category1',
