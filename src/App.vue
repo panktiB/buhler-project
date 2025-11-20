@@ -13,7 +13,7 @@ import { RouterView } from 'vue-router'
 
 <style scoped lang="scss">
 .app-container {
-  background-color: #f3f3f3;
+  background-color: rgb(var(--v-theme-background));
 }
 .content-wrapper {
   margin-top: 54px; // 54px is the height of the app nav bar

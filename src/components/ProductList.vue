@@ -14,7 +14,7 @@
     </v-row>
     <v-row v-else-if="categorizedProducts.length > 0">
       <v-col v-for="category in categorizedProducts" :key="category.name" cols="12">
-        <div class="text-capitalize font-weight-bold text-secondary mb-3 category-title">
+        <div class="text-capitalize font-weight-bold text-primary mb-3 category-title">
           {{ category.label }}
         </div>
         <v-row dense>
@@ -33,7 +33,7 @@
       </v-col>
     </v-row>
     <v-row v-else>
-      <v-col cols="12" class="text-center text-secondary"> No products available </v-col>
+      <v-col cols="12" class="text-center text-primary"> No products available </v-col>
     </v-row>
   </v-container>
 </template>

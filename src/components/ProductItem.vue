@@ -3,7 +3,7 @@
     <div class="pa-2">
       <v-img :src="product.imageUrl" :alt="product.name" height="150" cover />
     </div>
-    <v-card-text class="content text-secondary">
+    <v-card-text class="content text-primary">
       <v-row class="font-weight-bold">
         <v-tooltip :text="product.name" location="top">
           <template v-slot:activator="{ props }">
@@ -57,7 +57,7 @@ const handleClick = () => {
   border: 2px solid #dadada;
   &:hover {
     cursor: pointer;
-    border: 2px solid rgb(var(--v-theme-secondary));
+    border: 2px solid rgb(var(--v-theme-primary));
   }
 }
 

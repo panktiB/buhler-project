@@ -1,15 +1,17 @@
 <template>
   <v-container>
-    <v-row class="text-secondary pb-6">
+    <v-row class="text-primary pb-6">
       <div class="font-weight-bold">Checkout</div>
     </v-row>
-    <v-row v-for="item in items" :key="item.id" class="mb-4 text-secondary align-center">
+    <v-row v-for="item in items" :key="item.id" class="mb-4 text-primary align-center">
       <v-col cols="1">
         <v-img :src="item.imageUrl" :alt="item.name" height="100" cover />
       </v-col>
       <v-col cols="9" class="align-self-center">
         <div class="font-weight-bold">{{ item.name }}</div>
-        <div class="text-capitalize font-italic">{{ item.category.split('_').join(' ') }}</div>
+        <div class="text-capitalize text-caption font-italic">
+          {{ item.category.split('_').join(' ') }}
+        </div>
       </v-col>
       <v-col cols="2">
         <v-row>
@@ -27,7 +29,7 @@
         </v-row>
       </v-col>
     </v-row>
-    <v-row class="justify-end text-secondary pb-6">
+    <v-row class="justify-end text-primary pb-6">
       <div class="font-weight-bold">Total: x{{ totalPrice }}</div>
     </v-row>
   </v-container>

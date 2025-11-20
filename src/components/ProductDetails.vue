@@ -4,7 +4,7 @@
       <v-col class="pa-0">
         <v-btn
           variant="plain"
-          class="text-capitalize px-0 text-secondary"
+          class="text-capitalize px-0 text-primary"
           prepend-icon="mdi-arrow-left"
           @click="$router.back()"
         >
@@ -26,11 +26,11 @@
       <v-col cols="12" md="3" class="bg-white">
         <v-img :src="product?.imageUrl" :alt="product?.name" height="200" />
       </v-col>
-      <v-col class="text-secondary position-relative pl-8" cols="12" md="9">
-        <v-row>
+      <v-col class="text-primary position-relative pl-8" cols="12" md="9">
+        <v-row class="pb-2">
           <div class="text-h6 font-weight-bold pl-5">{{ product?.name }}</div>
         </v-row>
-        <v-row>
+        <v-row class="pb-2">
           <div class="font-italic pl-5 text-capitalize">
             {{ product?.category.split('_').join(' ') }}
           </div>
@@ -41,7 +41,7 @@
         <v-row class="position-absolute bottom-0 pl-1">
           <v-btn
             variant="text"
-            color="secondary"
+            color="primary"
             prepend-icon="mdi-cart-outline"
             class="text-capitalize"
             @click="addToCart"

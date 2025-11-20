@@ -6,9 +6,9 @@
           <v-img :src="logo" alt="logo" width="150" height="30"></v-img>
         </RouterLink>
       </v-col>
-      <v-col class="text-center text-secondary align-self-center">{{ now }}</v-col>
-      <v-col class="text-end text-secondary align-self-center">
-        <RouterLink to="/checkout" class="text-secondary text-decoration-none">
+      <v-col class="text-center text-primary align-self-center">{{ now }}</v-col>
+      <v-col class="text-end text-primary align-self-center">
+        <RouterLink to="/checkout" class="text-primary text-decoration-none">
           <v-icon size="small">mdi-cart-outline</v-icon>
           <span>Cart</span>
           <span>({{ cartItems.length }})</span>
@@ -67,7 +67,7 @@ const cartItems = computed(() => cartStore.products)
 
 <style lang="scss" scoped>
 .nav-container {
-  background-color: #f3f3f3 !important;
-  border-bottom: 1px solid rgb(var(--v-theme-secondary));
+  background-color: rgb(var(--v-theme-background)) !important;
+  border-bottom: 1px solid rgb(var(--v-theme-primary));
 }
 </style>
